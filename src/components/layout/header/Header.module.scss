@@ -28,3 +28,24 @@
     }
   }
 }
+
+@media (max-width: 920px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 520px) {
+}
+@media (max-width: 430px) {
+}
+@media (max-width: 321px) {
+  .Header {
+    .content {
+      a {
+        display: none;
+      }
+      h1 {
+        display: none;
+      }
+    }
+  }
+}

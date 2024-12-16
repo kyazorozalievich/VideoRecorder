@@ -40,9 +40,43 @@
           }
         }
       }
-      video {
+      .video {
         width: 350px;
         height: 200px;
+      }
+    }
+  }
+}
+@media (max-width: 920px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 520px) {
+  .recorder {
+    .bg {
+      .content {
+        flex-direction: column;
+      }
+    }
+  }
+}
+@media (max-width: 430px) {
+  .recorder {
+    .bg {
+      .content {
+        flex-direction: column;
+      }
+    }
+  }
+}
+@media (max-width: 321px) {
+  .recorder {
+    .bg {
+      .content {
+        flex-direction: column;
+        .video {
+          width: 250px;
+        }
       }
     }
   }

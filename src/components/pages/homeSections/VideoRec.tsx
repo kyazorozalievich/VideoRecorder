@@ -92,14 +92,11 @@ const VideoRec = () => {
             </div>
             {videoUrl ? (
               <video
+                className={scss.video}
                 src={videoUrl}
                 controls
                 autoPlay
                 loop
-                style={{
-                  width: "350px",
-                  height: "200px",
-                }}
               />
             ) : (
               <div className={scss.noneVideo}></div>
