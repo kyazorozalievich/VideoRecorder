@@ -4,6 +4,7 @@ import { useVideoRec } from "@/hooks/useVideoRec";
 import scss from "./VideoRec.module.scss";
 
 const VideoRec = () => {
+  if (typeof window === "undefined") return null;
   const { status, startRecording, stopRecording, mediaBlobUrl } = useVideoRec();
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
 
@@ -26,16 +27,19 @@ const VideoRec = () => {
 
   // Восстановление видео из localStorage при загрузке
   useEffect(() => {
-    const base64Video = localStorage.getItem("recordedVideoBase64");
-    if (base64Video) {
-      const blob = fetch(base64Video)
-        .then((res) => res.blob())
-        .then((blob) => {
-          const url = URL.createObjectURL(blob);
-          setVideoUrl(url);
-        });
+    if (typeof window !== "undefined") {
+      const base64Video = localStorage.getItem("recordedVideoBase64");
+      if (base64Video) {
+        fetch(base64Video)
+          .then((res) => res.blob())
+          .then((blob) => {
+            const url = URL.createObjectURL(blob);
+            setVideoUrl(url);
+          });
+      }
     }
   }, []);
+  
 
   // Функция для скачивания видео
   const handleDownload = () => {
